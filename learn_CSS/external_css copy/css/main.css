@@ -1,9 +1,8 @@
 body
 {
     background-image: url("../images/Trịnh\ Thanh\ An.JPG");
+    background-size: 100% auto;
 }
 audio {
-  width: 300px;
-  border: 2px solid #333;
-  border-radius: 8px;
+  display: none;
 }
