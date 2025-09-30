@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>  - Trịnh Thanh An </title>
+        <style type="text/css">
+            thead{
+                background-color: rgb(193, 129, 193);
+                color: rgb(44, 29, 1);
+                font-weight: bolder;
+            }
+            tbody tr:nth-child(2n)
+            {
+                background-color: aquamarine;
+            }
+            tbody tr:nth-child(2n+1)
+            {
+                background-color: rgb(37, 84, 170);
+                color: aliceblue;
+            }
+            tfoot tr
+            {
+                background-color: bisque;
+                color: blue;
+                font-weight: bolder;
+            }
+            tbody tr:hover
+            {
+                color: rebeccapurple;
+                font-size: larger;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <caption> List of Products</caption>
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Quantity </th>
+                    <th> Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> 
+                    <td> P01 </td>
+                    <td> Coca </td>
+                    <td> 100 </td>
+                    <td> 15,000 </td>
+                </tr>
+                <tr> 
+                    <td> P02 </td>
+                    <td> Pepsi </td>
+                    <td> 200 </td>
+                    <td> 17,000 </td>
+                </tr>
+                <tr> 
+                    <td> P03 </td>
+                    <td> Sting </td>
+                    <td> 90 </td>
+                    <td> 12,000 </td>
+                </tr>
+                <tr> 
+                    <td> P04 </td>
+                    <td> Aqua </td>
+                    <td> 12 </td>
+                    <td> 17,000 </td>
+                </tr>
+                <tr> 
+                    <td> P05 </td>
+                    <td> Fanta </td>
+                    <td> 20 </td>
+                    <td> 18,000 </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4"> Dessigned by Thanh An </td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
