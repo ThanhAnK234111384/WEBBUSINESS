@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Online Classifield - Trịnh Thanh An </title>
+        <style>
+        body {
+            background-color:#CCFFFF;
+        }
+        h2 {
+            color: red;
+        }
+        #checkbox {
+            margin-bottom: 25px;
+        }
+        #from {
+            font-weight: bold;
+        }
+        button {
+            background-color: #CCFFFF;
+            border: 0;
+        }
+    </style>
+    </head>
+    <body>
+        <h2>Online Classifieds Search Form</h2>
+    <hr>
+    <form>
+        <h4> 1) Search for a classified in the following sections:</h4>
+        <table>
+            <tr>
+                <td>
+                    <input id="Classified_E" type="radio" name="Classified"><label for="Classified_E">Employment</label>
+                </td>
+                <td>
+                    <input id="Classified_P" type="radio" name="Classified"><label for="Classified_P">Personal</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Classified_F" type="radio" name="Classified"><label for="Classified_F">For Sale</label>
+                </td>
+                <td>
+                    <input id="Classified_M" type="radio" name="Classified"><label for="Classified_M">Miscellanecus</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Classified_H" type="radio" name="Classified"><label for="Classified_H">Housing</label>
+                </td>
+                <td>
+                    <input id="Classified_A" type="radio" name="Classified"><label for="Classified_A">All of the above</label>
+                </td>
+            </tr>
+        </table>
+        <h4>2) Search the following publications:</h4>
+        <table id="checkbox">
+            <tr>
+                <td>
+                    <input id="Pub_MT" type="checkbox"><label for="Pub_MT">Midwest times</label>
+                </td>
+                <td>
+                    <input id="Pub_MN" type="checkbox"><label for="Pub_MN">Modern News</label>
+                </td>
+                <td>
+                    <input id="Pub_E" type="checkbox"><label for="Pub_E">Employment Today</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Pub_G" type="checkbox"><label for="Pub_G">Great Lakes Classifieds</label>
+                </td>
+                <td>
+                    <input id="Pub_MD" type="checkbox"><label for="Pub_MD">Middleton Daily</label>
+                </td>
+                <td>
+                    <input id="Pub_C" type="checkbox"><label for="Pub_C">Cashtown Daily News</label>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <label id="from" for="from-to">3) From to</label>
+            <input id="from-to" type="date"> to
+            <input id="from-to" type="date">
+        </div>
+        <div>
+            <h4><label for="describe">4) Enter a few keywords to describe the classified.</label></h4>
+            <input  id="describe" type="text" size="70">
+        </div>
+        <div>
+            <h4>5) Click one of the options below:</h4>
+            <button type="submit" onclick="alert(`Search Results:
+            1. Section:
+            2. Publications:
+            3. Date Range:
+            4. Keywords:`)"><img src="images/Search.gif"></button>
+            <button type="button"><a href="help.html"><img src="images/Help.gif"></a></button>
+            <button type="reset"><img src="images/Cancel.gif"></button>
+        </div>
+    </form>
+    </body>
+</html>
