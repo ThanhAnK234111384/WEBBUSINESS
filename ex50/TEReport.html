@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Travel Expense Report- Trịnh Thanh An </title>
+        <style>
+            body {
+                background-color:#CCFFFF;
+            }
+            .image {
+                text-align: center;
+            }
+            div {
+                margin: 15px 0;
+            }
+            textarea {
+                resize: none;
+                width: 450px;
+                height: 70px;
+            }
+            table {
+                text-align: center;
+            }
+            td#description {
+                width: 300px;
+            }
+            td#category {
+                width: 100px;
+            }
+            td#amount {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+            <div class="image">
+        <img src="images/DeLong.jpg">
+    </div>
+    <h2>Travel Expense Report</h2>
+    <hr>
+    <form>
+        <div>
+            <label for="firstname">1) First Name:</label>
+            <input id="firstname" type="text" size="14">
+            <label for="lastname">Last Name:</label>
+            <input id="lastname" type="text" size="14">
+        </div>
+        <div>
+            <label for="number">2) Social Security Number:</label>
+            <input id="number" type="text" size="6">
+        </div>
+        <div>
+            <label for="department">3) Department:</label>
+            <select id="department">
+                <option value="Accounting">Accounting</option>
+            </select>
+        </div>
+        <div>
+            <p><label for="purpose">4) Describe the purpose of your trip.</label></p>
+            <textarea id="purpose"></textarea> 
+        </div>
+        <div>
+            <p>5) Itemize your travel expenses</p>
+            <table border="1">
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td id="description">
+                        <input type="text">
+                    </td>
+                    <td id="category">
+                        <select>
+                            <option value="Meal">Meal</option>
+                        </select>
+                    </td>
+                    <td id="amount">
+                        <input type="text" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td id="description">
+                        <input type="text">
+                    </td>
+                    <td id="category">
+                        <select>
+                            <option value="Meal">Meal</option>
+                        </select>
+                    </td>
+                    <td id="amount">
+                        <input type="text" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td id="description">
+                        <input type="text">
+                    </td>
+                    <td id="category">
+                        <select>
+                            <option value="Meal">Meal</option>
+                        </select>
+                    </td>
+                    <td id="amount">
+                        <input type="text" size="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date">
+                    </td>
+                    <td id="description">
+                        <input type="text">
+                    </td>
+                    <td id="category">
+                        <select>
+                            <option value="Meal">Meal</option>
+                        </select>
+                    </td>
+                    <td id="amount">
+                        <input type="text" size="2">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <label> 6) Have you submitted your receipts?</label>
+            <input id="submitted_Y" type="radio" name="submitted" value="Yes"><label for="submitted_Y">Yes</label>
+            <input id="submitted_N" type="radio" name="submitted" value="No"><label for="submitted_N">No</label>
+        </div>
+        <div>
+            <input type="submit" value="Submit travel expenses" onclick="alert('Submit thành công')">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+    <p> Questions? Contact Debbie Larson in Accounting (ext. 2150).</p>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Registration - Trịnh Thanh An </title>
+        <style>
+            body {
+                background-color: teal;
+                color: white;
+            }   
+            .header {
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            div {
+                margin: 20px 0;
+            }
+            table {
+                width: 290px;
+            }
+            td {
+                vertical-align: top;
+            }
+            .button {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+        <img src="images/Logo.gif">
+        <h1>Newborn Registration</h1>
+    </div>
+        <form>
+            <div>
+                <label for="date">Date:</label>
+                <input id="date" type="date">
+            </div>
+            <div>
+                <label for="firstname">1) Infant's first name:</label>
+                <input id="firstname" type="text" size="16">
+                <label for="lastname">Last:</label>
+                <input id="lastname" type="text" size="16">
+            </div>
+            <div>
+                <label for="record">2) Medical Record #:</label>
+                <input id="record" type="text" size="8">
+            </div>
+            <div>
+                <label for="DOB">3) Date of birth:</label>
+                <input id="DOB" type="date">
+            </div>
+            <div>
+                <label for="weight">4) Birth weight :</label>
+                <input id="weight" type="text" size="6">
+            </div>
+            <div>
+                <label for="score">5) APGAR score :</label>
+                <input id="score" type="text" size="3">
+            </div>
+            <div>
+                <label for="mother_firstname">6) Mother's first name:</label>
+                <input id="mother_firstname" type="text" size="16">
+                <label for="mother_lastname">Last:</label>
+                <input id="mother_lastname" type="text" size="16">
+            </div>
+            <div>
+                <label for="father_firstname">7) Father's fisrt name :</label>
+                <input id="father_firstname" type="text" size="16">
+                <label for="father_lastname">Last:</label>
+                <input id="father_lastname" type="text" size="16">
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="physician">8) Physician (check all that apply:)</label>
+                    </td>
+                    <td>
+                        <select id="physician" multiple="4">
+                            <option value="Dr.Warren Albert">Dr: Warren Albert</option>
+                            <option value="Dr.Maria Alverez">Dr: Maria Alvarez</option>
+                            <option value="Dr.Karen Brinkman">Dr: Karen Brinkman</option>
+                            <option value="Dr.Micheal Kerry">Dr: Micheal Kerry</option>
+                            <option value="Dr.Micheal Kerry">Dr: Vinh Y</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="button">
+                <button type="submit" value="Register">Register</button>
+                <button type="reset" value="Cancel">Cancel</button>
+            </div>
+        </form>
+    </body>
+</html>
