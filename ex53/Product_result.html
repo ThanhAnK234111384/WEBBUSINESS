@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Product Result - Trịnh Thanh An </title>
+    </head>
+    <body>
+            <h2> TOTAL </h2>
+    <p><strong> Product Details: </strong></p>
+    <ul id="product-list"></ul>
+    <p><strong> Total: </strong><span id="final-total"></span>$</p>
+    <button type="button"><a href="Product.html">Home</a></button>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        let total = 0;
+        const productList = document.getElementById('product-list');
+
+        for (let i = 1; i <= 3; i++) {
+            const price = parseFloat(params.get(`price${i}`)) || 0;
+            const qty = parseInt(params.get(`qty${i}`)) || 0;
+            const item = params.get(`item${i}`) || 'Không xác định';
+
+            if (qty > 0) {
+                const lineTotal = price * qty;
+                total += lineTotal;
+
+                const li = document.createElement('li');
+                li.innerText = `${item} - Số lượng: ${qty}, Đơn giá: ${price}$, Thành tiền: ${lineTotal}$`;
+                productList.appendChild(li);
+            }
+        }
+
+        document.getElementById('final-total').innerText = total.toFixed(2);
+    </script>
+    </body>
+</html>
