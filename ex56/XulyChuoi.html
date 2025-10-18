@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> String processing - Trịnh Thanh An </title>
+        <script>
+            function dem_ky_tu_hoa() {
+                let so_ky_tu_hoa = 0;
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                for (let i = 0; i < du_lieu.length; i++) {
+                    if (du_lieu[i] >= 'A' && du_lieu[i] <= 'Z') {
+                        so_ky_tu_hoa++;
+                    }
+                }
+                document.getElementById("ket_qua").innerHTML = so_ky_tu_hoa;
+            }
+            function dem_ky_tu_thuong() {
+                let so_ky_tu_thuong = 0;
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                for (let i = 0; i < du_lieu.length; i++) {
+                    if (du_lieu[i] >= 'a' && du_lieu[i] <= 'z') {
+                        so_ky_tu_thuong++;
+                    }
+                }
+                document.getElementById("ket_qua").innerHTML = so_ky_tu_thuong;
+            }
+            function in_ky_tu_hoa() {
+                let ky_tu_hoa = "";
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                for (let i = 0; i < du_lieu.length; i++) {
+                    if (du_lieu[i] >= 'A' && du_lieu[i] <= 'Z') {
+                        ky_tu_hoa += du_lieu[i];
+                    }
+                }
+                document.getElementById("ket_qua").innerHTML = ky_tu_hoa;
+            }
+            function in_ky_tu_thuong() {
+                let ky_tu_thuong = "";
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                for (let i = 0; i < du_lieu.length; i++) {
+                    if (du_lieu[i] >= 'a' && du_lieu[i] <= 'z') {
+                        ky_tu_thuong += du_lieu[i];
+                    }
+                }
+                document.getElementById("ket_qua").innerHTML = ky_tu_thuong;
+            }
+            function dem_so_tu() {
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                const tu = du_lieu.split(" ");
+                document.getElementById("ket_qua").innerHTML = tu.length;
+            }
+            function in_moi_tu_tren_dong() {
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                const tu = du_lieu.split(" ");
+                let ket_qua = "";
+                for (const t of tu) {
+                    ket_qua += t + "\n";
+                }
+                document.getElementById("ket_qua").innerHTML = ket_qua;
+            }
+            function in_nguyen_am_phu_am() {
+                const du_lieu = document.getElementById("du_lieu_nhap").value;
+                let nguyen_am = "Nguyên âm:";
+                let phu_am = "Phụ âm:";
+                for (const ky_tu of du_lieu) {
+                    if ("ueoaiUEOAI".includes(ky_tu)) {
+                        nguyen_am += " " + ky_tu;
+                    } else if (ky_tu.match(/[a-zA-Z]/)) {
+                        phu_am += " " + ky_tu;
+                    }
+                }
+                document.getElementById("ket_qua").innerHTML = nguyen_am + "\n" + phu_am;
+            }
+            function mo_trang_w3c() {
+                const url = "https://www.w3.org/TR/string-meta/";
+                window.open(url, "_blank");
+            }
+        </script>
+        <style>
+            h2 {
+                margin: 0;
+            }
+            textarea {
+                width: 250px;
+                height: 100px;
+            }
+            input{
+                width: 300px;
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <table cellspacing="0" style="border: 2px solid lightblue;">
+                <tr>
+                    <td colspan="2">
+                        <h2> Using String Processing functions </h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <fieldset>
+                            <legend>
+                                <h2>Input data</h2>
+                            </legend>
+                            <textarea id="du_lieu_nhap"></textarea>
+                        </fieldset>
+                    </td>
+                    <td align="center">
+                        <fieldset>
+                            <legend>
+                                <h2>Result</h2>
+                            </legend>
+                            <textarea id="ket_qua"></textarea>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Enter data">
+                    </td>
+                    <td>
+                        <input type="button" value="Count the number of uppercase characters" onclick="dem_ky_tu_hoa()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Uppercase display" onclick="in_ky_tu_hoa()">
+                    </td>
+                    <td>
+                        <input type="button" value="Output one word per line" onclick="in_moi_tu_tren_dong()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Lowercase display" onclick="in_ky_tu_thuong()">
+                    </td>
+                    <td>
+                        <input type="button" value="Word count" onclick="dem_so_tu()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Count the number of lowercase characters" onclick="dem_ky_tu_thuong()">
+                    </td>
+                    <td>
+                        <input type="button" value="Print vowels, consonants" onclick="in_nguyen_am_phu_am()">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="W3C's String Processing Website" style="width: 600px;" onclick="mo_trang_w3c()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

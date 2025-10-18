@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Hàm toán học - Trịnh Thanh An </title>
+        <script>
+        function GTLN() {
+            const a = parseFloat(document.getElementById("so_a").value) || 0;
+            const b = parseFloat(document.getElementById("so_b").value) || 0;
+            const c = parseFloat(document.getElementById("so_c").value) || 0;
+            const ket_qua = (Math.max(a,b,c));
+            document.getElementById("ket_qua").innerHTML = ket_qua;
+        }
+        function GTNN() {
+            const a = parseFloat(document.getElementById("so_a").value) || 0;
+            const b = parseFloat(document.getElementById("so_b").value) || 0;
+            const c = parseFloat(document.getElementById("so_c").value) || 0;
+            const ket_qua = (Math.min(a,b,c));
+            document.getElementById("ket_qua").innerHTML = ket_qua;
+        }
+        function sin() {
+            const a = parseFloat(document.getElementById("so_a").value) || 0;
+            const ket_qua = (Math.sin(a));
+            document.getElementById("ket_qua").innerHTML = ket_qua;
+        }
+        function cos() {
+            const a = parseFloat(document.getElementById("so_a").value) || 0;
+            const ket_qua = (Math.cos(a));
+            document.getElementById("ket_qua").innerHTML = ket_qua;
+        }
+        function luythua() {
+            const a = parseFloat(document.getElementById("so_a").value) || 0;
+            const b = parseFloat(document.getElementById("so_b").value) || 0;
+            const ket_qua = (Math.pow(a,b));
+            document.getElementById("ket_qua").innerHTML = ket_qua;
+        }
+    </script>
+    </head>
+    <body>
+        <form>
+        <table border="1">
+            <tr>
+                <td width="150">
+                    <label for="so_a">a(So Thu 1):</label>
+                </td>
+                <td>
+                    <input id="so_a" type="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="so_b">b(So Thu 2)</label>
+                </td>
+                <td>
+                    <input id="so_b" type="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="so_c">c(So Thu 3)</label>
+                </td>
+                <td>
+                    <input id="so_c" type="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    KET QUA
+                </td>
+                <td id="ket_qua">
+                </td>
+            </tr>
+        </table>
+        <div>
+            <input type="button" value="MAX" onclick="GTLN()">
+            <input type="button" value="MIN" onclick="GTNN()">
+            <input type="button" value="sin(a)" onclick="sin()">
+            <input type="button" value="Cos(a)" onclick="cos()">
+            <input type="button" value="a^b" onclick="luythua()">
+        </div>
+    </form>
+    </body>
+</html>

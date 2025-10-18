@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> The quadratic equation - Trịnh Thanh An </title>
+        <script>
+            function PTB2() {
+                const a = parseFloat(document.getElementById("so_a").value) || 0;
+                const b = parseFloat(document.getElementById("so_b").value) || 0;
+                const c = parseFloat(document.getElementById("so_c").value) || 0;
+                let ket_qua = "";
+
+                if (a === 0) {
+                    if (b === 0) {
+                        ket_qua = c === 0 ? "Vô số nghiệm" : "Vô nghiệm";
+                    } else {
+                        ket_qua = `Nghiệm x = ${-c/b}`;
+                    }
+                } else {
+                    const delta = b*b - 4*a*c;
+                    if (delta < 0) {
+                        ket_qua = "Vô nghiệm";
+                    } else if (delta === 0) {
+                        const x = -b / (2*a);
+                        ket_qua = `Nghiệm kép x1 = x2 = ${x}`;
+                    } else {
+                        const x1 = (-b + Math.sqrt(delta)) / (2*a);
+                        const x2 = (-b - Math.sqrt(delta)) / (2*a);
+                        ket_qua = `Hai nghiệm phân biệt: x1 = ${x1}, x2 = ${x2}`;
+                    }
+                }
+
+                document.getElementById("ket_qua").innerHTML = ket_qua;
+            }
+            function resetkq() {
+                document.getElementById("ket_qua").innerHTML = "";
+            }
+        </script>
+        <style>
+            th {
+                text-align: center;
+                font-weight: normal;
+            }
+            td {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <table cellspacing="0">
+                <tr>
+                    <th colspan="2">The quadratic equation</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="so_a"> a:</label>
+                    </td>
+                    <td width="170">
+                        <input id="so_a" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="so_b"> b:</label>
+                    </td>
+                    <td>
+                        <input id="so_b" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="so_c">c:</label>
+                    </td>
+                    <td>
+                        <input id="so_c" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td> Result:</td>
+                    <td id="ket_qua"></td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td colspan="2">
+                        <input type="button" value="Solution" onclick="PTB2()">
+                        <input type="reset" value="Clear" onclick="resetkq()">
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </body>
+</html>
