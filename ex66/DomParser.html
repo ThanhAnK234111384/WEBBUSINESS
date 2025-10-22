@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML-Dom Parser - Trịnh Thanh An </title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 350px;
+      }
+      th {
+        background-color: rgb(156, 239, 153);
+      }
+      td {
+        padding-left: 5px;
+      }
+    </style>
+    <script src="DomParser.js" defer></script>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th colspan="2">Student Information </th>
+      </tr>
+      <tr onmouseover="add(this)" onmouseout="process(this)">
+        <td> Student ID </td>
+        <td id="stuID"></td>
+      </tr>
+      <tr onmouseover="add(this)" onmouseout="process(this)">
+        <td> Student Name </td>
+        <td id="stuname"></td>
+      </tr>
+      <tr onmouseover="add(this)" onmouseout="process(this)">
+        <td> Birthday </td>
+        <td id="birthday"></td>
+      </tr>
+      <tr onmouseover="add(this)" onmouseout="process(this)">
+        <td>Gender</td>
+        <td id="gender"></td>
+      </tr>
+    </table>
+  </body>
+</html>

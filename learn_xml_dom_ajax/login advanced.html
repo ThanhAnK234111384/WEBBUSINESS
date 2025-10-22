@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Login System - Trịnh Thanh An </title>
+        <script type="text/javascript">
+            function select_one(json_account,uid,pwd)
+            {
+                for (i=0;i<json_account.account.length;i++)
+            {
+                ac=json_account.account[i]
+                if(ac.user==uid && ac.password==pwd)
+            {
+                return ac
+            }
+            }
+            return null
+            }
+        </script>
+        <script type="text/javascript">
+            function process_login()
+            {
+                var xhr = new XMLHttpRequest;
+            xhr.open("GET","book.xml",true);
+            xhr.send();
+           xhr.onreadystatechange=function()
+            {
+                if (xhr.readyState==4 && xhr.status==200)
+                {
+                  //alert (xhr.responseText)
+                  json_account=JSON.parse(xhr.responseText)
+                  ac=select_one(
+                json_account,
+                my_form.user_name.value,
+                my_form.password.value,
+            )
+            if (ac==null)
+                {
+                    alert("Login failed, contact to ADMIN")
+                }
+                }
+                else
+                {
+                    //convert json object
+                    string_json=JSON.stringify(ac)
+                    //save string into hardlist
+                    
+                    if(ac.user=="admin")
+                {
+                    window.open("books_cover.html","_self")
+                }
+                else
+                {
+                    window.open("xml_dom1","_self")
+                }
+                }
+            }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <fieldset>
+                <legend> Login ABC System: </legend>
+                <table>
+                    <tr>
+                        <td rowspan="6">
+                            <img src="images/ic_admin.png" width="150" height="150"/>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> User </td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <input type="text" name="user_name" id="user_name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Password </td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <input type="password" name="password" id="password"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <input type="checkbox" name="save_info" id="save_info"/>
+                            <label for="save_info"> Save Login Information </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> 
+                            <button type="button" onclick="process_login()"> Login </button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "accounts":
+    [
+        {
+          "user":"admin",
+          "fullname":"Trần Thị Linh",
+          "password":"123"  
+        },
+        {
+            "user":"employee",
+            "fullname":"Nguyễn Văn Tinh",
+            "password":"456"  
+        }
+    ]
+}
