@@ -1,0 +1,483 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title> Tin báo - Trịnh Thanh An </title>
+          <style>
+    /* ===== THEME ===== */
+    :root {
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #0b57d0;
+      --accent-weak: #e6efff;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --gap: 14px;
+      --table-stripe: #fafafa;
+    }
+    [data-theme="dark"] {
+      --bg: #0b0f14;
+      --card: #0f141a;
+      --text: #e5e7eb;
+      --muted: #9aa4af;
+      --border: #1f2937;
+      --accent: #7aa2ff;
+      --accent-weak: #11223a;
+      --shadow: 0 8px 24px rgba(0,0,0,.35);
+      --table-stripe: #0d1218;
+    }
+
+    /* ===== BASE ===== */
+    * { box-sizing: border-box }
+    html,body { height: 100% }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+
+    /* ===== HEADER ===== */
+    .hero {
+      background: radial-gradient(1200px 300px at 10% -10%, var(--accent-weak), transparent 60%),
+                  radial-gradient(1200px 300px at 90% -10%, var(--accent-weak), transparent 60%);
+      border-bottom: 1px solid var(--border);
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 18px 16px }
+    .title {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .title h1 { font-size: 20px; margin: 0; letter-spacing: .2px }
+    .chips { display:flex; gap:8px; flex-wrap:wrap }
+    .chip {
+      padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px;
+      background: var(--card); color: var(--muted); font-size: 12px;
+    }
+
+    /* ===== TOOLBAR ===== */
+    .toolbar {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in oklab, var(--bg) 92%, transparent);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .bar { max-width: 1200px; margin: 0 auto; padding: 10px 16px; display:grid; grid-template-columns: 1fr auto auto auto auto auto; gap: 10px; align-items:center }
+    @media (max-width: 980px) { .bar { grid-template-columns: 1fr auto auto auto } .hide-md { display:none } }
+    .input {
+      display:flex; align-items:center; gap:8px; padding: 10px 12px; border:1px solid var(--border);
+      border-radius: 12px; background: var(--card);
+    }
+    .input input {
+      border:0; outline:0; background:transparent; width:100%; color: var(--text);
+      font-size:14px;
+    }
+    .select, .btn {
+      border:1px solid var(--border); background: var(--card); color: var(--text);
+      padding: 10px 12px; border-radius: 12px; font-size: 14px; cursor: pointer;
+    }
+    .btn { display:inline-flex; align-items:center; gap:8px; box-shadow: var(--shadow) }
+    .btn[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 0 }
+    .btn.icon { padding: 9px 10px }
+    .btn.primary { background: var(--accent); color: white; border-color: transparent }
+    .btn:disabled { opacity: .6; cursor:not-allowed }
+    .stat { color: var(--muted); font-size: 13px; text-align:right }
+
+    /* ===== CONTAINERS ===== */
+    .panel {
+      max-width: 1200px; margin: 16px auto; padding: 0 16px 24px;
+    }
+    .card {
+      background: var(--card); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+
+    /* ===== TABLE ===== */
+    .table-wrap { overflow: auto; border-radius: var(--radius); }
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      position: sticky; top: 0; background: color-mix(in oklab, var(--card) 94%, transparent);
+      font-size: 13px; text-align: left; padding: 12px; border-bottom: 1px solid var(--border); z-index:1;
+    }
+    tbody td { border-top: 1px solid var(--border); padding: 12px; vertical-align: top; }
+    tbody tr:nth-child(2n) td { background: var(--table-stripe) }
+    .title-cell a { font-weight: 600 }
+    .desc { color: var(--muted); line-height: 1.5 }
+    .img { width: 140px; height: 88px; border-radius: 10px; overflow: hidden; background: var(--accent-weak) }
+    .img img { width: 100%; height: 100%; object-fit: cover; display:block }
+    .nowrap { white-space: nowrap }
+
+    /* Density */
+    [data-density="compact"] thead th, [data-density="compact"] tbody td { padding: 8px 10px }
+    [data-density="compact"] .img { width: 110px; height: 70px }
+
+    /* ===== CARDS GRID ===== */
+    .grid {
+      display:grid; gap: var(--gap);
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width: 1100px){ .grid { grid-template-columns: repeat(2, minmax(0,1fr)) } }
+    @media (max-width: 720px){ .grid { grid-template-columns: 1fr } }
+    .news-card { display:grid; grid-template-columns: 160px 1fr; gap: 14px; padding: 14px }
+    .news-card .cover { width: 100%; height: 112px; border-radius: 12px; overflow: hidden; background: var(--accent-weak) }
+    .news-card img { width:100%; height:100%; object-fit:cover; display:block }
+    .news-card h3 { margin: 0 0 6px; font-size: 16px }
+    .news-meta { display:flex; gap:10px; align-items:center; color: var(--muted); font-size: 12px }
+    .news-actions { margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap }
+    .news-actions .btn { padding: 8px 10px; border-radius: 10px; box-shadow: none }
+
+    /* ===== SKELETON ===== */
+    .skeleton { position: relative; overflow: hidden; background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--text) 8%, transparent), transparent); }
+    .skeleton::before {
+      content:""; position:absolute; inset:0; background:
+      linear-gradient(90deg, transparent, color-mix(in oklab, var(--card) 75%, transparent), transparent);
+      animation: shine 1.2s infinite;
+    }
+    @keyframes shine { from { transform: translateX(-100%) } to { transform: translateX(100%) } }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed; left: 50%; transform: translateX(-50%);
+      bottom: 18px; background: var(--card); color: var(--text);
+      border:1px solid var(--border); padding: 10px 14px; border-radius: 12px; box-shadow: var(--shadow);
+      font-size: 14px; z-index: 50; display:none;
+    }
+
+    /* ===== MISC ===== */
+    .empty { text-align:center; padding: 24px; color: var(--muted) }
+    .muted { color: var(--muted) }
+    .row-hover tbody tr:hover td, .news-card:hover { background: color-mix(in oklab, var(--accent-weak) 40%, transparent) }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="wrap title">
+      <h1>VnExpress – Kinh doanh • Tổng hợp RSS</h1>
+      <div class="chips">
+        <span class="chip">Nguồn: <b>vnexpress.net</b></span>
+        <span class="chip hide-md">Cập nhật nhanh & tiện đọc</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar" role="region" aria-label="Thanh công cụ">
+    <div class="bar">
+      <label class="input" style="min-width: 220px">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 18a8 8 0 1 1 5.293-14.001A8 8 0 0 1 10 18zm11 3.586L16.742 17.33"/></svg>
+        <input id="q" type="search" placeholder="Tìm tiêu đề, mô tả…" />
+      </label>
+
+      <select id="sort" class="select" title="Sắp xếp">
+        <option value="date_desc">Mới nhất</option>
+        <option value="date_asc">Cũ nhất</option>
+        <option value="title_asc">Tiêu đề A→Z</option>
+        <option value="title_desc">Tiêu đề Z→A</option>
+      </select>
+
+      <button id="viewTable" class="btn icon" title="Chế độ Bảng" aria-pressed="true">📋</button>
+      <button id="viewCards" class="btn icon" title="Chế độ Thẻ">🗂️</button>
+
+      <button id="density" class="btn hide-md" title="Đổi mật độ">Mật độ: Comfort</button>
+
+      <button id="exportCsv" class="btn hide-md" title="Xuất CSV">⬇️ Xuất CSV</button>
+
+      <div class="stat hide-md">
+        <div><span id="count" class="muted">—</span></div>
+        <div><span id="updatedAt" class="muted">Chưa tải</span></div>
+      </div>
+
+      <button id="reloadBtn" class="btn primary" title="Tải lại">
+        🔄 Tải lại
+      </button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div id="container" class="card">
+      <!-- Render here -->
+      <div id="placeholder"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+        <script>
+    const FEED_URL = 'https://vnexpress.net/rss/kinh-doanh.rss';
+    const CORS_FALLBACKS = [
+      (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+      (u) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
+    ];
+
+    const ui = {
+      q: document.getElementById('q'),
+      sort: document.getElementById('sort'),
+      viewTable: document.getElementById('viewTable'),
+      viewCards: document.getElementById('viewCards'),
+      density: document.getElementById('density'),
+      exportCsv: document.getElementById('exportCsv'),
+      container: document.getElementById('container'),
+      placeholder: document.getElementById('placeholder'),
+      count: document.getElementById('count'),
+      updatedAt: document.getElementById('updatedAt'),
+      reload: document.getElementById('reloadBtn'),
+      toast: document.getElementById('toast'),
+    };
+
+    const state = {
+      itemsAll: [],
+      itemsView: [],
+      settings: loadSettings(),
+    };
+
+    /* ===== UTIL ===== */
+    function saveSettings() { localStorage.setItem('vnx_settings', JSON.stringify(state.settings)); }
+    function loadSettings() {
+      try { return JSON.parse(localStorage.getItem('vnx_settings')) || { theme: getSystemTheme(), view:'table', density:'comfort' }; }
+      catch { return { theme: getSystemTheme(), view:'table', density:'comfort' }; }
+    }
+    function getSystemTheme(){ return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    function applySettings(){
+      document.documentElement.setAttribute('data-theme', state.settings.theme);
+      document.body.setAttribute('data-density', state.settings.density === 'compact' ? 'compact':'comfort');
+      ui.viewTable.setAttribute('aria-pressed', state.settings.view==='table');
+      ui.viewCards.setAttribute('aria-pressed', state.settings.view==='cards');
+      ui.density.textContent = 'Mật độ: ' + (state.settings.density==='compact'?'Compact':'Comfort');
+    }
+    function toast(msg, ms=2200){
+      ui.toast.textContent = msg;
+      ui.toast.style.display = 'block';
+      clearTimeout(ui.toast._t);
+      ui.toast._t = setTimeout(()=> ui.toast.style.display='none', ms);
+    }
+    function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }
+    function formatVi(dt){
+      try { return new Intl.DateTimeFormat('vi-VN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(dt); }
+      catch { return dt?.toISOString?.()||''; }
+    }
+    function toDateSafe(s){ const d=new Date(s); return isNaN(d)?null:d; }
+    function escapeHtml(s){ return (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+    /* ===== FETCH & PARSE ===== */
+    async function fetchWithFallback(url) {
+      const targets = [url, ...CORS_FALLBACKS.map(f=>f(url))];
+      let lastErr;
+      for (const t of targets) {
+        try {
+          const r = await fetch(t, { headers: { 'Accept': 'application/rss+xml, application/xml, text/xml, text/plain, */*' }, cache:'no-store' });
+          if (!r.ok) throw new Error('HTTP '+r.status);
+          const txt = await r.text();
+          if (!/^\s*</.test(txt)) throw new Error('Unexpected content');
+          return txt;
+        } catch(e){ lastErr = e; }
+      }
+      throw lastErr || new Error('Fetch failed');
+    }
+    function parseXml(xmlText){
+      const doc = new DOMParser().parseFromString(xmlText,'application/xml');
+      if (doc.querySelector('parsererror')) throw new Error('XML parsererror');
+      return doc;
+    }
+    function textFromHtml(html, max=260){
+      const div=document.createElement('div'); div.innerHTML=html||'';
+      const t=(div.textContent||'').replace(/\s+/g,' ').trim();
+      return max && t.length>max ? t.slice(0,max-1).trimEnd()+'…' : t;
+    }
+    function firstImage(item, descriptionHtml){
+      const e=item.querySelector('enclosure[url]');
+      if (e && (e.getAttribute('type')||'').startsWith('image')) return e.getAttribute('url');
+      const m=item.querySelector('media\\:content[url], content[url]');
+      if (m && (m.getAttribute('type')||'').startsWith('image')) return m.getAttribute('url');
+      if (descriptionHtml) {
+        const g = descriptionHtml.match(/<img[^>]+src=["']([^"']+)["']/i);
+        if (g) return g[1];
+      }
+      return '';
+    }
+    function extractItems(doc){
+      const arr=[...doc.querySelectorAll('channel > item')].map(x=>{
+        const title = x.querySelector('title')?.textContent?.trim()||'';
+        const link  = x.querySelector('link')?.textContent?.trim()||'#';
+        const pubRaw= x.querySelector('pubDate')?.textContent?.trim()||'';
+        const pubDate = toDateSafe(pubRaw);
+        const descHtml= x.querySelector('description')?.textContent||'';
+        const image = firstImage(x, descHtml);
+        return { title, link, pubDate, pubRaw, description: textFromHtml(descHtml, 300), image };
+      });
+      arr.sort((a,b)=>(b.pubDate?.getTime()||0)-(a.pubDate?.getTime()||0));
+      return arr;
+    }
+
+    /* ===== RENDER ===== */
+    function showSkeleton(){
+      const rows = 6;
+      if (state.settings.view==='cards') {
+        ui.container.innerHTML = `<div class="grid" style="padding:14px">${Array.from({length:rows}).map(()=>`
+          <div class="news-card">
+            <div class="cover skeleton"></div>
+            <div>
+              <div class="skeleton" style="height:18px; border-radius:8px; margin:2px 0 10px"></div>
+              <div class="skeleton" style="height:12px; border-radius:8px; margin:6px 0"></div>
+              <div class="skeleton" style="height:12px; border-radius:8px; width:70%; margin:6px 0"></div>
+            </div>
+          </div>`).join('')}</div>`;
+      } else {
+        ui.container.innerHTML = `
+        <div class="table-wrap row-hover">
+          <table aria-label="Bảng tin">
+            <thead>
+              <tr>
+                <th style="width:30%">Title</th>
+                <th style="width:42%">Description</th>
+                <th style="width:15%">Image</th>
+                <th class="nowrap" style="width:13%">PubDate</th>
+                <th class="nowrap" style="width:8%">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${Array.from({length:rows}).map(()=>`
+                <tr>
+                  <td><div class="skeleton" style="height:18px; border-radius:8px"></div></td>
+                  <td><div class="skeleton" style="height:46px; border-radius:8px"></div></td>
+                  <td><div class="img skeleton" aria-hidden="true"></div></td>
+                  <td><div class="skeleton" style="height:16px; border-radius:8px; width:80px"></div></td>
+                  <td><div class="skeleton" style="height:16px; border-radius:8px; width:50px"></div></td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>`;
+      }
+    }
+
+    function render(){
+      const items = state.itemsView;
+      if (!items.length) {
+        ui.container.innerHTML = `<div class="empty">Không có dữ liệu phù hợp.</div>`;
+        return;
+      }
+      if (state.settings.view==='cards') {
+        ui.container.innerHTML = `<div class="grid" style="padding:14px">${items.map(it=>`
+          <article class="news-card">
+            <a href="${it.link}" target="_blank" rel="noopener" class="cover">
+              ${it.image ? `<img src="${it.image}" alt="${escapeHtml(it.title)}" loading="lazy">` : ''}
+            </a>
+            <div>
+              <h3><a href="${it.link}" target="_blank" rel="noopener">${escapeHtml(it.title)}</a></h3>
+              <div class="news-meta">
+                <span>🕒 ${it.pubDate? formatVi(it.pubDate): escapeHtml(it.pubRaw||'N/A')}</span>
+              </div>
+              <p class="desc">${escapeHtml(it.description)}</p>
+              <div class="news-actions">
+                <a class="btn" href="${it.link}" target="_blank" rel="noopener">Mở bài viết</a>
+                ${it.image? `<a class="btn" href="${it.image}" target="_blank" rel="noopener">Ảnh</a>`:''}
+              </div>
+            </div>
+          </article>`).join('')}</div>`;
+      } else {
+        ui.container.innerHTML = `
+          <div class="table-wrap row-hover">
+            <table aria-label="Bảng tin">
+              <thead>
+                <tr>
+                  <th style="width:30%">Title</th>
+                  <th style="width:42%">Description</th>
+                  <th style="width:15%">Image</th>
+                  <th class="nowrap" style="width:13%">PubDate</th>
+                  <th class="nowrap" style="width:8%">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${items.map(it=>`
+                  <tr>
+                    <td class="title-cell"><a href="${it.link}" target="_blank" rel="noopener">${escapeHtml(it.title)}</a></td>
+                    <td class="desc">${escapeHtml(it.description)}</td>
+                    <td><div class="img">${it.image? `<img src="${it.image}" alt="${escapeHtml(it.title)}" loading="lazy">` : ''}</div></td>
+                    <td class="nowrap">${it.pubDate? formatVi(it.pubDate): escapeHtml(it.pubRaw||'N/A')}</td>
+                    <td><a href="${it.link}" target="_blank" rel="noopener">Mở</a></td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>`;
+      }
+      ui.count.textContent = `Tổng: ${items.length} bài`;
+      ui.updatedAt.textContent = `Cập nhật: ${formatVi(new Date())}`;
+    }
+
+    /* ===== FILTER & SORT ===== */
+    function applyQuerySort(){
+      const q = ui.q.value.trim().toLowerCase();
+      let list = state.itemsAll;
+      if (q) {
+        list = list.filter(x =>
+          x.title.toLowerCase().includes(q) ||
+          x.description.toLowerCase().includes(q)
+        );
+      }
+      const s = ui.sort.value;
+      list = [...list];
+      if (s==='date_desc') list.sort((a,b)=>(b.pubDate?.getTime()||0)-(a.pubDate?.getTime()||0));
+      if (s==='date_asc')  list.sort((a,b)=>(a.pubDate?.getTime()||0)-(b.pubDate?.getTime()||0));
+      if (s==='title_asc') list.sort((a,b)=>a.title.localeCompare(b.title, 'vi'));
+      if (s==='title_desc')list.sort((a,b)=>b.title.localeCompare(a.title, 'vi'));
+      state.itemsView = list;
+      render();
+    }
+
+    /* ===== EXPORT ===== */
+    function toCsv(items){
+      const header = ['Title','Description','Image','PubDate','Link'];
+      const rows = items.map(x=>[
+        x.title, x.description, x.image||'', x.pubDate?formatVi(x.pubDate): (x.pubRaw||''), x.link
+      ]);
+      const all = [header, ...rows].map(r=>r.map(v=>{
+        const s = (v??'').toString().replace(/"/g,'""');
+        return `"${s}"`;
+      }).join(',')).join('\r\n');
+      return new Blob([all], {type:'text/csv;charset=utf-8;'});
+    }
+    function downloadBlob(blob, name){
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(blob); a.download=name; a.click();
+      setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
+    }
+
+    /* ===== LOAD ===== */
+    async function load(){
+      try {
+        ui.reload.disabled = true; showSkeleton();
+        const xml = await fetchWithFallback(FEED_URL);
+        const doc = parseXml(xml);
+        state.itemsAll = extractItems(doc);
+        applyQuerySort();
+        toast('Đã tải RSS ✓');
+      } catch(e){
+        ui.container.innerHTML = `<div class="empty">Lỗi tải RSS: ${e?.message||e}. Thử “Tải lại”.</div>`;
+        toast('Không thể tải RSS', 2600);
+      } finally {
+        ui.reload.disabled = false;
+      }
+    }
+
+    /* ===== INIT ===== */
+    // Theme init
+    applySettings();
+    // Toggle theme with Shift+T (ẩn): vì giao diện, không hiển thị nút để giữ gọn
+    document.addEventListener('keydown', (e)=>{ if(e.shiftKey && (e.key==='T'||e.key==='t')) { state.settings.theme = state.settings.theme==='dark'?'light':'dark'; applySettings(); saveSettings(); toast('Đổi theme: '+state.settings.theme); } });
+
+    // Bind toolbar
+    ui.q.addEventListener('input', debounce(applyQuerySort, 200));
+    ui.sort.addEventListener('change', applyQuerySort);
+    ui.viewTable.addEventListener('click', ()=>{ state.settings.view='table'; saveSettings(); applySettings(); showSkeleton(); render(); });
+    ui.viewCards.addEventListener('click', ()=>{ state.settings.view='cards'; saveSettings(); applySettings(); showSkeleton(); render(); });
+    ui.density.addEventListener('click', ()=>{ state.settings.density = state.settings.density==='comfort'?'compact':'comfort'; saveSettings(); applySettings(); });
+    ui.exportCsv.addEventListener('click', ()=>{ if(!state.itemsView.length) return; const blob=toCsv(state.itemsView); downloadBlob(blob, 'vnexpress-kinh-doanh.csv'); });
+    ui.reload.addEventListener('click', load);
+
+    // First render
+    showSkeleton();
+    load();
+        </script>
+    </body>
+</html>
