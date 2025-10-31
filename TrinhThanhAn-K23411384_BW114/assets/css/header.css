@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #000;
+    overflow: visible;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    padding: 0;
+    height: 60px;
+    border-bottom: 1px solid #222;
+}
+
+.menu-item {
+    position: relative;
+    color: #fafafa;
+    text-decoration: none;
+    padding: 20px 24px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.menu-item:hover {
+    background-color: #111;
+    border-bottom-color: #fafafa;
+}
+
+.menu-item.active {
+    background-color: #111;
+    border-bottom-color: #fafafa;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    border-radius: 8px;
+    margin-top: 0;
+    border: 1px solid #222;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #fafafa;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.dropdown-content a:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-content a:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: #1a1a1a;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .menu-item {
+    background-color: #111;
+    border-bottom-color: #fafafa;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemon Company Website</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main-header.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Part A: Header with Menu -->
+        <div class="main-header">
+            <div class="logo-brand" onclick="loadPage('about.html')" style="cursor: pointer;">
+                <img src="../TrinhThanhAn-K23411384_BW114/assets/images/lemon.jpg" alt="Lemom Company" class="company-logo">
+            </div>
+            <nav class="menu">
+                <span class="menu-item" onclick="loadPage('about.html')">About me</span>
+
+                <div class="dropdown">
+                    <span class="menu-item">Form & Javascript</span>
+                    <div class="dropdown-content">
+                        <a onclick="loadPage('products.html')">Products</a>
+                        <a onclick="loadPage('providers.html')">Provider</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <span class="menu-item">API and External</span>
+                    <div class="dropdown-content">
+                        <a onclick="loadPage('weather.html')">Weather API</a>
+                        <a onclick="loadPage('rss.html')">RSS</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <span class="menu-item">Login/Logout</span>
+                    <div class="dropdown-content">
+                        <a onclick="loadPage('login.html')">Login Page</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="middle-section">
+            <!-- Part B: Left Sidebar (Vietlott) -->
+            <div class="sidebar-left">
+                <iframe src="sidebar-left.html" frameborder="0"></iframe>
+            </div>
+
+            <!-- Part C: Main Content Area -->
+            <div class="content">
+                <iframe id="mainContent" src="about.html" frameborder="0"></iframe>
+            </div>
+
+            <!-- Part D: Right Sidebar (Marquee) -->
+            <div class="sidebar-right">
+                <iframe src="sidebar-right.html" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        <!-- Part E: Footer -->
+        <div class="footer">
+            <iframe src="footer.html" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <script src="../TrinhThanhAn-K23411384_BW114/assets/js/main.js"></script>
+</body>
+</html>

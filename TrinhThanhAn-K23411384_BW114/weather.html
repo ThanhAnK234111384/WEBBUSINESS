@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnam Weather Forecast</title>
+    <link rel="stylesheet" href="../TrinhThanhAn-K23411384_BW114/assets/css/weather.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vietnam Weather Forecast</h1>
+        <div class="select-wrapper">
+            <select id="province-select">
+                <option value="">Select Province/City</option>
+            </select>
+        </div>
+        <div id="weather-display" style="display: none;">
+            <div class="weather-current">
+                <div class="weather-main">
+                    <img id="current-icon" class="weather-icon" src="" alt="Weather Icon">
+                    <div class="weather-info">
+                        <p class="location" id="location"></p>
+                        <h2 id="temperature"></h2>
+                        <p class="status" id="status"></p>
+                    </div>
+                </div>
+                <div class="temp-range">
+                    <p><strong>High:</strong> <span id="high"></span>°C</p>
+                    <p><strong>Low:</strong> <span id="low"></span>°C</p>
+                </div>
+            </div>
+            <h3>Weather Details</h3>
+            <div class="weather-details">
+                <div class="weather-detail-item">
+                    <strong>Feels Like</strong>
+                    <span id="feels-like"></span><span>°C</span>
+                </div>
+                <div class="weather-detail-item">
+                    <strong>Humidity</strong>
+                    <span id="humidity"></span>
+                </div>
+                <div class="weather-detail-item">
+                    <strong>Visibility</strong>
+                    <span id="visibility"></span>
+                </div>
+                <div class="weather-detail-item">
+                    <strong>UV Index</strong>
+                    <span id="uv-index"></span>
+                </div>
+                <div class="weather-detail-item">
+                    <strong>Wind</strong>
+                    <span id="wind"></span>
+                </div>
+                <div class="weather-detail-item">
+                    <strong>Sunrise</strong>
+                    <span id="sunrise"></span>
+                </div>
+                <div class="weather-detail-item">
+                    <strong>Sunset</strong>
+                    <span id="sunset"></span>
+                </div>
+            </div>
+            <h3>7-Day Forecast</h3>
+            <div class="forecast" id="forecast"></div>
+        </div>
+    </div>
+
+    <script src="../TrinhThanhAn-K23411384_BW114/assets/js/weather-data.js"></script>
+    <script src="../TrinhThanhAn-K23411384_BW114/assets/js/weather.js"></script>
+</body>
+</html>

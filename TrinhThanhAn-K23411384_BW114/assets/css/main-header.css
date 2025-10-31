@@ -1,0 +1,109 @@
+/* Header styles for main page */
+.main-header {
+    height: 100px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.logo-brand {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.company-logo {
+    height: 90px;
+    width: auto;
+    display: block;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    height: 100px;
+    margin-right: 60px;
+}
+
+.menu-item {
+    position: relative;
+    color: #171717;
+    text-decoration: none;
+    padding: 20px 24px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.menu-item:hover {
+    background-color: #f5f5f5;
+    border-bottom-color: #171717;
+}
+
+.menu-item.active {
+    background-color: #f5f5f5;
+    border-bottom-color: #171717;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid #e5e5e5;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #171717;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.dropdown-content a:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-content a:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .menu-item {
+    background-color: #f5f5f5;
+    border-bottom-color: #171717;
+}

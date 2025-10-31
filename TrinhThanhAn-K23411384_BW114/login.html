@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Logout</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginSection" class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="Enter password">
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div id="errorMessage" class="error-message hidden"></div>
+        </div>
+
+        <!-- Logout Section -->
+        <div id="logoutSection" class="logout-container hidden">
+            <h2>Welcome!</h2>
+            <div class="welcome-message">You are logged in</div>
+            <div class="user-info">
+                <p><strong>Username:</strong> <span id="displayUsername"></span></p>
+                <p><strong>Login Time:</strong> <span id="loginTime"></span></p>
+            </div>
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

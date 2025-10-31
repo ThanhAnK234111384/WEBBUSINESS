@@ -1,0 +1,116 @@
+/* Main CSS for Kiwi Company Website - Vercel Style */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #fafafa;
+}
+
+/* Part A: Header */
+.header {
+    height: 60px;
+    background-color: #000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    position: relative;
+}
+
+.header iframe {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Middle Section */
+.middle-section {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* Part B: Left Sidebar */
+.sidebar-left {
+    width: 280px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-right: 1px solid #e5e5e5;
+}
+
+.sidebar-left iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Part C: Main Content */
+.content {
+    flex: 1;
+    background: #ffffff;
+    overflow: auto;
+}
+
+.content iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Part D: Right Sidebar */
+.sidebar-right {
+    width: 180px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-left: 1px solid #e5e5e5;
+}
+
+.sidebar-right iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Part E: Footer */
+.footer {
+    height: 50px;
+    background-color: #000;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.footer iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar-left,
+    .sidebar-right {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .middle-section {
+        flex-direction: column;
+    }
+
+    .sidebar-left,
+    .sidebar-right {
+        width: 100%;
+        height: 200px;
+        border: none;
+        border-top: 1px solid #bdc3c7;
+        border-bottom: 1px solid #bdc3c7;
+    }
+}

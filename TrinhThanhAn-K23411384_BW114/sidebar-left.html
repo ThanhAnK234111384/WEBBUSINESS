@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietlott Jackpot</title>
+    <link rel="stylesheet" href="assets/css/sidebar-left.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="assets/images/Vietlott_logo.svg" alt="Vietlott" class="vietlott-logo">
+    </div>
+    <div class="radio-group">
+        <label>
+            <input type="radio" name="lottery" value="mega645" checked onchange="loadJackpot()">
+            <span>Mega 6/45</span>
+        </label>
+        <label>
+            <input type="radio" name="lottery" value="power655" onchange="loadJackpot()">
+            <span>Power 6/55</span>
+        </label>
+    </div>
+    <div id="jackpotData">
+        <div class="loading">Loading...</div>
+    </div>
+
+    <script src="assets/js/sidebar-left.js"></script>
+</body>
+</html>

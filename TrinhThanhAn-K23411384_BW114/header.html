@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="assets/css/header.css">
+</head>
+<body>
+    <nav class="menu">
+        <div class="dropdown">
+            <span class="menu-item">About me</span>
+            <div class="dropdown-content">
+                <a onclick="loadPage('about.html')">Student Info</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <span class="menu-item">Form & Javascript</span>
+            <div class="dropdown-content">
+                <a onclick="loadPage('products.html')">Products</a>
+                <a onclick="loadPage('employees.html')">Provider</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <span class="menu-item">API and External</span>
+            <div class="dropdown-content">
+                <a onclick="loadPage('weather.html')">Weather API</a>
+                <a onclick="loadPage('rss.html')">RSS</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <span class="menu-item">Login/Logout</span>
+            <div class="dropdown-content">
+                <a onclick="loadPage('login.html')">Login Page</a>
+            </div>
+        </div>
+    </nav>
+
+    <script src="assets/js/header.js"></script>
+</body>
+</html>

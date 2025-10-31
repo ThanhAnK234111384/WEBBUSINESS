@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providers</title>
+    <link rel="stylesheet" href="../TrinhThanhAn-K23411384_BW114/assets/js/employees.js">
+</head>
+<body>
+    <div class="employees-container">
+        <h2>Providers Management</h2>
+
+        <div class="form-container">
+            <form id="employeeForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empId">Providers ID *</label>
+                        <input type="text" id="empId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empName">Name *</label>
+                        <input type="text" id="empName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empPhone">Phone *</label>
+                        <input type="tel" id="empPhone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="empEmail">Email *</label>
+                        <input type="email" id="empEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empAge">Age *</label>
+                        <input type="number" id="empAge" min="1" max="150" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Add Employee</button>
+            </form>
+        </div>
+
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+                <!-- Employees will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../TrinhThanhAn-K23411384_BW114/assets/js/employees.js"></script>
+</body>
+</html>
